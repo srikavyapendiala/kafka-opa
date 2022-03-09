@@ -7,7 +7,7 @@ services:
     command:
       - "run"
       - "--server"
-      - "--config-file=opa-conf.yaml"
+      - "--config-file=/tmp/opa-conf.yaml"
     volumes:
       - "./opa-conf.yaml:/tmp/opa-conf.yaml"
   zookeeper:
