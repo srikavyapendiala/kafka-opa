@@ -1,11 +1,5 @@
 version: '3'
 services:
-  nginx:
-    image: nginx:1.21.4
-    volumes:
-      - "./bundles:/usr/share/nginx/html"
-    ports:
-      - "80:80"
   opa:
     image: openpolicyagent/opa:0.37.2-rootless
     ports:
@@ -13,12 +7,9 @@ services:
     command:
       - "run"
       - "--server"
-      - "--set=decision_logs.console=true"
-      - "--set=services.authz.url=http://nginx"
-      - "--set=bundles.authz.service=authz"
-      - "--set=bundles.authz.resource=bundle.tar.gz"
-    depends_on:
-      - nginx
+      - "--config-file=opa-conf.yaml"
+    volumes:
+      - "./opa-conf.yaml:/tmp/opa-conf.yaml"
   zookeeper:
     image: confluentinc/cp-zookeeper:6.2.1
     ports:
