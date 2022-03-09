@@ -3,11 +3,11 @@ services:
   opa:
     image: openpolicyagent/opa:0.37.2-rootless
     ports:
-      - "8181:8181"
+      - "8282:8282"
     command:
       - "run"
       - "--server"
-      - "--config-file=/tmp/opa-conf.yaml"
+      - "--config-file=opa-conf.yaml"
     volumes:
       - "./opa-conf.yaml:/tmp/opa-conf.yaml"
   zookeeper:
@@ -24,7 +24,7 @@ services:
     environment:
       # Set cache expiry to low value for development in order to see decisions
       KAFKA_OPA_AUTHORIZER_CACHE_EXPIRE_AFTER_SECONDS: 10
-      KAFKA_OPA_AUTHORIZER_URL: http://opa:8181/v1/data/kafka/authz/allow
+      KAFKA_OPA_AUTHORIZER_URL: http://opa:8282/v1/data/kafka/authz/allow
       KAFKA_AUTHORIZER_CLASS_NAME: org.openpolicyagent.kafka.OpaAuthorizer
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
