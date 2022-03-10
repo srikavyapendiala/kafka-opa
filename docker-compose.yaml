@@ -1,9 +1,9 @@
-version: '3.9'
+version: '3'
 services:
   opa:
     image: openpolicyagent/opa
     ports:
-      - "8282:8282"
+      - "8181:8181"
     command:
       - "run"
       - "--server"
