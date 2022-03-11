@@ -44,7 +44,7 @@ services:
       CLASSPATH: "/plugin/*"
     volumes:
       - "./plugin:/plugin"
-      - "./root/kafka-opa/cert/server:/etc/kafka/secrets"
+      - "/root/kafka-opa/cert/server:/etc/kafka/secrets"
     depends_on:
       - opa
       - zookeeper
