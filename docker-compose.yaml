@@ -9,7 +9,7 @@ services:
       - "--server"
       - "--config-file=/tmp/opa-conf.yaml"
     volumes:
-      - "./opa-conf.yaml:/tmp/opa-conf.yaml"
+      - "./root/kafka-opa/opa-conf.yaml:/tmp/opa-conf.yaml"
   zookeeper:
     image: confluentinc/cp-zookeeper:6.2.1
     ports:
