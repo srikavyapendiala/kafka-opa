@@ -1,4 +1,4 @@
-SCRIPT_DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+# SCRIPT_DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
 mkdir -p cert/ca
 mkdir -p cert/server
@@ -45,4 +45,4 @@ EOF
 done
 
 # Cleanup
-# rm cert/server/server.unsigned.crt cert/ca/ca.srl
+ rm cert/server/server.unsigned.crt cert/ca/ca.srl
