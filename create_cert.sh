@@ -45,4 +45,4 @@ EOF
 done
 
 # Cleanup
-rm cert/server/server.unsigned.crt cert/ca/ca.srl
+# rm cert/server/server.unsigned.crt cert/ca/ca.srl
