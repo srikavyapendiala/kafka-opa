@@ -48,3 +48,5 @@ done
 
 # Cleanup
 rm cert/server/server.unsigned.crt cert/ca/ca.srl
+
+###
