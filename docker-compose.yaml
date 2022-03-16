@@ -1,7 +1,7 @@
 version: '3'
 services:
   opa:
-    image: openpolicyagent/opa:0.38.0-rootless
+    image: openpolicyagent/opa:0.38.1-rootless
     ports:
       - "8181:8181"
     command:
@@ -9,7 +9,7 @@ services:
       - "--server"
       - "--config-file=/tmp/opa-conf.yaml"
     volumes:
-      - "/root/kafka-opa/opa-conf.yaml:/tmp/opa-conf.yaml"
+      - "../opa-conf.yaml:/tmp/opa-conf.yaml"
   zookeeper:
     image: confluentinc/cp-zookeeper:6.2.1
     ports:
@@ -44,7 +44,7 @@ services:
       CLASSPATH: "/plugin/*"
     volumes:
       - "./plugin:/plugin"
-      - "/root/kafka-opa/cert/server:/etc/kafka/secrets"
+      - "../cert/server:/etc/kafka/secrets"
     depends_on:
       - opa
       - zookeeper
